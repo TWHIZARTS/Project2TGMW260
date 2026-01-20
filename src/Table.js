@@ -10,8 +10,8 @@ function Table(props)
     <thead>
         <tr>
             <td>Project Title</td>
-            <td>Institution</td>
 
+            <td>Institution</td>
             <td>State</td>
             <td>Primary Discipline</td>
             <td>Program</td>
@@ -21,7 +21,6 @@ function Table(props)
     </thead>
 
     <tbody>
-    
     
         {props.data.map(grant => 
 
