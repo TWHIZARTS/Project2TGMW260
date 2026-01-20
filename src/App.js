@@ -6,6 +6,7 @@
 
 
 import { useEffect, useState} from "react";
+import Table from "./Table.js";
 
 
 
@@ -33,33 +34,6 @@ function App() {
 
     fetchData()
 
-function DrawTable({props})
-{
-  return(
-    <table>
-    
-      <thead>
-        <td> Project Title </td>
-        <td> Institution </td>
-      </thead>
-
-      <tbody>
-      </tbody>
-      
-    </table>
-  )
-}
-
-function TableRow({props})
-{
-  return(
-  props.map(item=>
-    <tr>{item}</tr>
-  )
-  )
-}
-
-
 
 
   },[]);
@@ -69,16 +43,8 @@ function TableRow({props})
 
   return (
   <div className="App">
+    <Table data={data}> </Table>
   
-
-
-  
-
-
-
- 
-
-
 
 
 </div>);}
