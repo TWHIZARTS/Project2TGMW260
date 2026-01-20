@@ -7,9 +7,11 @@
 
 import { useEffect, useState} from "react";
 
+
+
 function App() {
 
- const [data,setData]=useState([]);
+ const [data,setData ]= useState([]);
 
   useEffect(() =>{
     async function fetchData()
@@ -21,41 +23,84 @@ function App() {
     if (response.ok) 
       {
       const result = await response.json();
-      console.log(result.Grants.Grant)
-      setData(result.Grants.Grant)
-      }
+      // console.log(result)
+      console.log(result.Grants.Grant);
+      let storearray=result.Grants.Grant;
+      setData(storearray);
 
-  
+      }
     }
+
     fetchData()
-    function drawTable(props){
-      <table>
-      <td> Project Title</td>
-      <td>Institution</td>
-      </table>}
+
+function DrawTable({props})
+{
+  return(
+    <table>
+    
+      <thead>
+        <td> Project Title </td>
+        <td> Institution </td>
+      </thead>
+
+      <tbody>
+      </tbody>
       
+    </table>
+  )
+}
+
+function TableRow({props})
+{
+  return(
+  props.map(item=>
+    <tr>{item}</tr>
+  )
+  )
+}
+
+
+
 
   },[]);
 
+
 // YES YOU HAVE YOUR EMPTY ARRAY, TORI
 
-  return (<div className="App">
-  <>
-  <table>
-    <thead>
-      <td> Project Title</td>
-      <td>Institution</td>
-    </thead>
-    grant
-    <tbody>
+  return (
+  <div className="App">
+  
+
+
+  
+
+
 
  
-    </tbody>
-    </table>
-  </>
+
 
 
 
 </div>);}
 
 export default App;
+
+
+
+
+  //  <table>
+  // <thead>
+  //   <tr>
+  //     <td>Project Title</td>
+  //     <td>Institution</td>
+  //   </tr>
+
+  // </thead>
+
+  // <tbody>
+  //   <tr>
+  //     <td>hiiii</td>
+  //   </tr>
+  // </tbody>
+  
+  // </table>
