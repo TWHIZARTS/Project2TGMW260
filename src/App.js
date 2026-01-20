@@ -34,11 +34,12 @@ const [dataCopy,setDataCopy]= useState(data);
     fetchData()
   },[]);
 
-// function sortdataoriginal()
-// {
 
-
-// }
+// SORTS DATA BY ORIGINAL
+function sortdataoriginal()
+{
+setDataCopy(data)
+}
 
 // SORTS DATA BY STATE
 function sortdatastates()
@@ -55,28 +56,95 @@ function sortdatastates()
   if (nameA > nameB) {
     return 1;
   }
-  // a.InstState>=b.InstState
+  
   return 0;
   })
 
   setDataCopy(storearray1)
 }
 
+// SORTS DATA BY AMOUNT
+function sortdataamount()
+{ 
+  let storearray1=[...data]
+  storearray1.sort((a, b)=>
+  {
+  const nameA = a.OriginalAmount.toUpperCase(); 
+  const nameB = b.OriginalAmount.toUpperCase(); 
+
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  
+  return 0;
+  })
+
+  setDataCopy(storearray1)
+}
+
+// SORTS DATA BY PROGRAM
+function sortdataprogram()
+{ 
+  let storearray1=[...data]
+  storearray1.sort((a, b)=>
+  {
+  const nameA = a.Program.toUpperCase(); 
+  const nameB = b.Program.toUpperCase(); 
+
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  
+  return 0;
+  })
+
+  setDataCopy(storearray1)
+}
+
+// SORTS DATA BY KENTUCKY
+function sortdatakentucky()
+{
+  let storearray1=[...data]
+  let storearray2=[]
+  for (let i = 0; i < storearray1.length; i++)
+  {
+    // console.log(storearray1[i].InstState)
+    if (storearray1[i].InstState==="KY")
+      {
+       storearray2.push(storearray1[i])
+      }
+
+
+    setDataCopy(storearray2)
+  }
+ 
+   
+}
+
+
+function sortdataselfdestruct(){setDataCopy([""])}
+
+
+
 
 return (
 <div className="App">
-  <button>All</button>
-  <button>Amounts</button>
+  
+  <button onClick={sortdataoriginal}>All Data</button>
+  <button onClick={sortdataamount}>Amounts</button>
   <button onClick={sortdatastates}>States</button>
-  <button>D</button>
-  <button>E</button>
-
+  <button onClick={sortdataprogram}>Program</button>
+  <button onClick={sortdatakentucky}>Kentucky!</button>
+  {/* <button>F</button> */}
+  <button onClick={sortdataselfdestruct}>Self Destruct</button>
+  
   <Table data={dataCopy}></Table>
-
-
-
-
-
 
 </div>);}
 
