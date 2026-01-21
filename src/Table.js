@@ -1,4 +1,6 @@
 import TableRow from "./TableRow"
+import './Table.css'
+
 
 function Table(props)
 {
@@ -9,14 +11,13 @@ function Table(props)
     
     <thead>
         <tr>
-            <td>Project Title</td>
-
-            <td>Institution</td>
-            <td>State</td>
-            <td>Primary Discipline</td>
-            <td>Program</td>
-            <td>Original Amount</td>
-            <td>Participant Count</td>
+            <th>Project Title</th>
+            <th>Institution</th>
+            <th>State</th>
+            <th>Primary Discipline</th>
+            <th>Program</th>
+            <th>Original Amount</th>
+            <th>Participant Count</th>
         </tr>
     </thead>
 

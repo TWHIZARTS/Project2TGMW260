@@ -7,7 +7,7 @@
 
 import { useEffect, useState} from "react";
 import Table from "./Table.js";
-
+import './Table.css'
 
 
 function App() {
@@ -128,21 +128,49 @@ function sortdatakentucky()
 }
 
 
-function sortdataselfdestruct(){setDataCopy([""])}
+// SORTS DATA BY PROJECT TITLE
+function sortdataprogramtitle()
+{ 
+  let storearray1=[...data]
+  storearray1.sort((a, b)=>
+  {
+  const nameA = a.ProjectTitle.toUpperCase(); 
+  const nameB = b.ProjectTitle.toUpperCase(); 
+
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  
+  return 0;
+  })
+
+  setDataCopy(storearray1)
+}
+
+
+
+
+// function sortdataselfdestruct(){setDataCopy([])} To be clear this is a joke
 
 
 
 
 return (
 <div className="App">
-  
+
+  <div className="ButtonGroup">
   <button onClick={sortdataoriginal}>All Data</button>
+  <button onClick={sortdataprogramtitle}>Title</button>
   <button onClick={sortdataamount}>Amounts</button>
   <button onClick={sortdatastates}>States</button>
   <button onClick={sortdataprogram}>Program</button>
-  <button onClick={sortdatakentucky}>Kentucky!</button>
-  {/* <button>F</button> */}
-  <button onClick={sortdataselfdestruct}>Self Destruct</button>
+  <button onClick={sortdatakentucky}>Kentucky</button>
+  
+  </div>
+  {/* <button onClick={sortdataselfdestruct}>Self Destruct</button> */}
   
   <Table data={dataCopy}></Table>
 
